@@ -1,0 +1,75 @@
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img src="/docs/4.6/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
+  </a>
+</nav>
+<div class="container">
+  <div class="row" style="margin-top: 20px;">
+   
+    <div class="col-md-4" id="colum_header">
+     
+      <b class="lblProduct">Product</b>
+      <select name="productlist" id="productlist" style="width: 15%;" (change)="onChangeProduct($event)">
+        <option *ngFor="let data of productListing;" [value]="data.val">{{data.name}}</option>
+      </select>
+      
+        <button class="btn btn-primary btn-sm" id="buttonget" type="button" (click)="onselectProduct()">GET</button>
+     
+    </div>
+    
+  </div>
+  <div class="row" style="margin-top: 20px;">
+    <div class="col-md-4" id="lblValname">
+      <h6><b>Product Name</b></h6>
+      <h6><b>Short Description</b></h6>
+      <h6><b>Detailed Description</b></h6>
+      <h6><b>Category</b></h6>
+      <h6><b>Starting Price</b></h6>
+      <h6><b>Bid End Date</b></h6>
+    </div>
+    <div class="col-md-8" id="lblvalueDisplay" *ngIf="selectedProduct && selectedProduct.length > 0">
+      <h6><b>{{selectedProduct[0].name}}</b></h6>
+      <h6><b>{{selectedProduct[0].shortDesc}}</b></h6>
+      <h6><b>{{selectedProduct[0].detailDesc}}</b></h6>
+      <h6><b>{{selectedProduct[0].category}}</b></h6>
+      <h6><b>{{selectedProduct[0].startPrice}}</b></h6>
+      <h6><b>{{selectedProduct[0].bidData}}</b></h6>
+      
+    </div>
+    
+  </div>
+  <h3 class="lblBids">Bids</h3>
+    <div class="row" style="margin-top: 20px;">
+      <div class="col-md-4" id="lblbidAmount">
+        <h4><b>Bid Amount</b></h4>
+          <div class="col-md-8" *ngIf="selectedProduct && selectedProduct.length > 0">
+            <h6><b>{{selectedProduct[0].bidamount1}}</b></h6>
+            <h6><b>{{selectedProduct[0].bidamount2}}</b></h6>
+          </div>
+      </div>
+
+      <div class="col-md-4" id="lblname">
+        <h4><b>Name</b></h4>
+        <div class="col-md-8" *ngIf="selectedProduct && selectedProduct.length > 0">
+          <h6><b>{{selectedProduct[0].bidderName1}}</b></h6>
+          <h6><b>{{selectedProduct[0].bidderName2}}</b></h6>
+        </div>
+      </div>
+
+      <div class="col-md-4" id="lblemail">
+        <h4><b>Email</b></h4>
+        <div class="col-md-8" *ngIf="selectedProduct && selectedProduct.length > 0">
+          <h6><b>{{selectedProduct[0].bidemail1}}</b></h6>
+          <h6><b>{{selectedProduct[0].bidemail2}}</b></h6>
+        </div>
+      </div>
+
+      <div class="col-md-4" id="lblmobile">
+        <h4><b>Mobile</b></h4>
+        <div class="col-md-8" *ngIf="selectedProduct && selectedProduct.length > 0">
+          <h6><b>{{selectedProduct[0].bidmobile1}}</b></h6>
+          <h6><b>{{selectedProduct[0].bidmobile2}}</b></h6>
+        </div>
+      </div>
+  </div>
+</div>
